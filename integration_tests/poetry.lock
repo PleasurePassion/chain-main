@@ -318,6 +318,12 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[package.dependencies]
+apply_defaults = "<1"
+click = "<8"
+jsonschema = "<4"
+requests = {version = "*", optional = true, markers = "extra == \"requests\""}
+
 [package.extras]
 aiohttp = ["aiohttp (>=3)"]
 requests = ["requests"]
@@ -326,15 +332,6 @@ tornado = ["tornado"]
 unittest = ["mock", "pytest", "responses", "testfixtures", "requests", "pyzmq", "pytest-asyncio", "aiohttp", "tornado", "websockets"]
 websockets = ["websockets"]
 zmq = ["pyzmq"]
-
-[package.dependencies]
-apply_defaults = "<1"
-click = "<8"
-jsonschema = "<4"
-
-[package.dependencies.requests]
-version = "*"
-optional = true
 
 [[package]]
 name = "jsonschema"
@@ -504,15 +501,12 @@ docker = "^4.3.1"
 durations = "^0.3.3"
 fire = "branch master"
 jsonmerge = "^1.7.0"
+jsonrpcclient = {version = "^3.3.6", extras = ["requests"]}
 multitail2 = "^1.5.2"
 python-dateutil = "^2.8.1"
 PyYAML = "^5.3.1"
 supervisor = "^4.2.1"
 tomlkit = "^0.7.0"
-
-[package.dependencies.jsonrpcclient]
-version = "^3.3.6"
-extras = ["requests"]
 
 [package.source]
 type = "directory"
@@ -653,14 +647,6 @@ python-versions = "*"
 testing = ["pytest", "pytest-cov"]
 
 [[package]]
-name = "termcolor"
-version = "1.1.0"
-description = "ANSII Color formatting for output in terminal."
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "testfixtures"
 version = "6.15.0"
 description = "A collection of helpers and mock objects for unit tests and doc tests."
@@ -707,7 +693,7 @@ python-versions = "*"
 
 [[package]]
 name = "urllib3"
-version = "1.26.2"
+version = "1.26.5"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
@@ -808,6 +794,7 @@ flake8 = [
 ]
 flake8-black = [
     {file = "flake8-black-0.2.1.tar.gz", hash = "sha256:f26651bc10db786c03f4093414f7c9ea982ed8a244cec323c984feeffdf4c118"},
+    {file = "flake8_black-0.2.1-py3-none-any.whl", hash = "sha256:941514149cb8b489cb17a4bb1cf18d84375db3b34381bb018de83509437931a0"},
 ]
 flake8-isort = [
     {file = "flake8-isort-4.0.0.tar.gz", hash = "sha256:2b91300f4f1926b396c2c90185844eb1a3d5ec39ea6138832d119da0a208f4d9"},
@@ -1066,9 +1053,6 @@ supervisor = [
     {file = "supervisor-4.2.1-py2.py3-none-any.whl", hash = "sha256:75ae1d758fd6a1cb5f878333b309e0e2cb351bd6487188e4c457cc1c8ec29904"},
     {file = "supervisor-4.2.1.tar.gz", hash = "sha256:c479c875853e9c013d1fa73e529fd2165ff1ecaecc7e82810ba57e7362ae984d"},
 ]
-termcolor = [
-    {file = "termcolor-1.1.0.tar.gz", hash = "sha256:1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"},
-]
 testfixtures = [
     {file = "testfixtures-6.15.0-py2.py3-none-any.whl", hash = "sha256:e17f4f526fc90b0ac9bc7f8ca62b7dec17d9faf3d721f56bda4f0fd94d02f85a"},
     {file = "testfixtures-6.15.0.tar.gz", hash = "sha256:409f77cfbdad822d12a8ce5c4aa8fb4d0bb38073f4a5444fede3702716a2cec2"},
@@ -1119,8 +1103,8 @@ typing-extensions = [
     {file = "typing_extensions-3.7.4.3.tar.gz", hash = "sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"},
 ]
 urllib3 = [
-    {file = "urllib3-1.26.2-py2.py3-none-any.whl", hash = "sha256:d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473"},
-    {file = "urllib3-1.26.2.tar.gz", hash = "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"},
+    {file = "urllib3-1.26.5-py2.py3-none-any.whl", hash = "sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c"},
+    {file = "urllib3-1.26.5.tar.gz", hash = "sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
